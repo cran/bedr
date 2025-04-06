@@ -38,7 +38,7 @@ Minimum overlap required as a fraction of A. Default is 1E-9 (i.e. 1bp).
 A grouping parameter for barplots.  Possible values include "input", "chr", or a categorical vector of length equal to the sum of the input.
 }
   \item{params}{
-Additional parameters for plotting or intersecting.  See \code{\link{venn.diagram}} function for possible options.
+Additional parameters for plotting or intersecting.  See \code{\link[VennDiagram]{venn.diagram}} function for possible options.
 }
   \item{verbose}{
 Include text messages.
@@ -54,6 +54,7 @@ Plots!
 Daryl Waggott
 }
 \examples{
+\dontrun{
 if (check.binary("bedtools")) {
 	# example data
 	a <- get.random.regions(n = 1000, chr = "chr22", size.mean = 10)
@@ -85,6 +86,7 @@ if (check.binary("bedtools")) {
 
 	dev.off()
 	}
+}
 }
 
 \keyword{ plot }

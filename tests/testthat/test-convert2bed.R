@@ -9,22 +9,24 @@
 # If publications result from research using this SOFTWARE, we ask that the Ontario Institute for Cancer Research be acknowledged and/or
 # credit be given to OICR scientists, as scientifically appropriate.
 
-in.region <- function(x,y, proportion.overlap = 1e-9, method = "natural", reciprocal.overlap = FALSE, check.zero.based = TRUE, check.chr = TRUE, check.valid = TRUE, check.sort = TRUE, check.merge = TRUE, verbose = FALSE) {
 
-	catv("REGION %in% REGION\n");
+test_that('check converting a region into bed file including file type checking and region verification', {
+	if (check.binary('bedtools', verbose = TRUE)) {	
+		regions <- get.example.regions()
+		regions$a <- bedr.sort.region(regions$a)
+		regions$b <- bedr.sort.region(regions$b)
+		a.bed <- index2bed(regions$a)
+		b.bed <- index2bed(regions$b)
 
-	reciprocal.overlap <- ifelse (reciprocal.overlap, "-r", "");
-	params <- paste0("-c -f ", proportion.overlap, reciprocal.overlap)
+		# bad region
+		expect_error(convert2bed('meow', verbose = FALSE))
 
-	x <- bedr.sort.region(x, method = method);
-	y <- bedr.sort.region(y, method = method);
-	xy <- bedr(engine = "bedtools", input = list(a = x, b = y), method = "intersect", params = params,  check.zero.based = check.zero.based, check.chr = check.chr, check.valid = check.valid, check.sort = check.sort, check.merge = check.merge, verbose = verbose);
-
-	in.region <- xy[,ncol(xy)] > 0;
-	
-	return(in.region);
-	}
-
-`%in.region%` <- function(x,y) {
-	in.region(x,y);
-	}
+		# good region
+		# expect_equivalent(convert2bed(regions$a, verbose = FALSE), a.bed);
+		# expect_equivalent(convert2bed(regions$b, verbose = FALSE), b.bed);
+		# expect_equivalent(convert2bed('chrY:24052505-24052506', verbose = FALSE), data.frame(chr = 'chrY', start = 24052505, end = 24052506, stringsAsFactors = FALSE));
+		expect_equal(convert2bed(regions$a, verbose = FALSE), a.bed, ignore_attr = TRUE);
+		expect_equal(convert2bed(regions$b, verbose = FALSE), b.bed, ignore_attr = TRUE);
+		expect_equal(convert2bed('chrY:24052505-24052506', verbose = FALSE), data.frame(chr = 'chrY', start = 24052505, end = 24052506, stringsAsFactors = FALSE), ignore_attr = TRUE);
+		}
+	})

@@ -1,8 +1,8 @@
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 # load bedr library
 library("bedr");
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 
 if (check.binary("bedtools")) {
 
@@ -22,7 +22,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION b: ", b, "\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# check if already sorted
@@ -48,7 +48,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION c: ", b.sort, "\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# check if already merged (non-overlapping regions)
@@ -71,7 +71,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION b: ", b.merge, "\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# subtract
@@ -89,7 +89,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION a - sub2: ", a.sub2, "\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# check if present in a region
@@ -102,7 +102,7 @@ if (check.binary("bedtools")) {
 	cat(" is.region: ", is.region, "\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# intersect / join
@@ -124,7 +124,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION multi (a,b,c) intersect: \n"); print(a.mult); cat("\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# compare a and b set of sequences
@@ -141,7 +141,7 @@ if (check.binary("bedtools")) {
 	cat(" JACCARD/RELDIST a & b: \n"); print(jaccard.reldist.stats); cat("\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# read example regions file
@@ -171,7 +171,7 @@ if (check.binary("bedtools")) {
 	cat(" REGION a groupby (mean): \n"); print(a.mean); cat("\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 	VALID.SV.TYPES <- c('BND', 'CNV', 'DEL', 'DUP', 'INS', 'INV');
 	POSITION.COLUMNS <- c('CHROM', 'POS', 'END');
@@ -226,7 +226,7 @@ if (check.binary("bedtools")) {
 	cat(" OVERLAPPING PAIRS: \n"); print(head(overlapping.pairs)); cat("\n");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# get Human RefSeq genes (Hg19) in BED format
@@ -271,7 +271,7 @@ if (check.binary("bedtools")) {
 	cat(" CALLER B GENES (chr 1,2): \n"); print(head(callerB.annotated)); cat("\n");
 	}
 
-## ---- results = "hold", message = FALSE, warnings = FALSE, eval = TRUE, errors = TRUE----
+## ----results = "hold", message = FALSE, warnings = FALSE, eval = TRUE, errors = TRUE----
 options("warn" = -1);
 if (check.binary("bedtools")) {
 
@@ -294,7 +294,7 @@ if (check.binary("bedtools")) {
 	cat(" CALLER B GENES (chr 1,2) GROUPED: \n"); print(head(callerB.annotated.grouped)); cat("\n");
 	}
 
-## ---- results = "hide", message = FALSE, eval = TRUE, errors = TRUE, fig.width = 7, fig.height = 7----
+## ----results = "hide", message = FALSE, eval = TRUE, errors = TRUE, fig.width = 7, fig.height = 7----
 if (check.binary("bedtools")) {
 
 	# merge and plot overlapping regions between the two callers with genes 
@@ -316,7 +316,7 @@ if (check.binary("bedtools")) {
 		);
 	}
 
-## ---- results = "hide", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hide", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# read copy number segmented (regions) data
@@ -397,7 +397,7 @@ if (check.binary("bedtools")) {
 		}
 	}
 
-## ---- results = "hide", message = FALSE, eval = TRUE, errors = TRUE, fig.width = 7, fig.height = 5----
+## ----results = "hide", message = FALSE, eval = TRUE, errors = TRUE, fig.width = 7, fig.height = 5----
 if (check.binary("bedtools")) {
 
 	# set graphics params
@@ -408,7 +408,7 @@ if (check.binary("bedtools")) {
 	hist(unlist(pga.loss), xlab = "Percent Loss", main = "Percent Genome Altered (Loss)");
 	}
 
-## ---- results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------
+## ----results = "hold", message = TRUE, eval = TRUE, errors = TRUE-------------
 if (check.binary("bedtools")) {
 
 	# find minimal common regions (gain)
